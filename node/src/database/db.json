@@ -1,0 +1,17 @@
+[
+      {
+        id: 1,
+        name: "product-1",
+        proce: 20,
+      },
+      {
+        id: 2,
+        name: "product-2",
+        proce: 40,
+      },
+      {
+        id: 3,
+        name: "product-3",
+        proce: 60,
+      },
+]
