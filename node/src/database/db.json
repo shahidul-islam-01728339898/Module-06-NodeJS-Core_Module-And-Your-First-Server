@@ -18,5 +18,23 @@
   {
     "id": 5,
     "name": "David Wilson"
+  },
+  {
+    "id": 1794622609089,
+    "name": "Mobile"
+  },
+  {
+    "id": 1794622670570,
+    "name": "Computer"
+  },
+  {
+    "id": 1794622782107,
+    "name": "Hdd",
+    "price": 2500
+  },
+  {
+    "id": 1794622824531,
+    "name": "Mouse",
+    "price": 250
   }
 ]

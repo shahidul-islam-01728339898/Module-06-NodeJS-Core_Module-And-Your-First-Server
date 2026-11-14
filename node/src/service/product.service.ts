@@ -1,10 +1,11 @@
 import fs from "fs";
 import path from "node:path";
+import { Iproduct } from "../types/product";
 
 //for building connection with database; database path
 const filePath = path.join(process.cwd(), "./src/database/db.json");
 
-const productService = () => {
+export const productService = () => {
   //   console.log(process.cwd());
   // console.log(filePath);
   const result = fs.readFileSync(filePath, "utf-8");
@@ -14,4 +15,6 @@ const productService = () => {
   return JSON.parse(result);
 };
 
-export default productService;
+export const createProduct = (payLoad: Iproduct[]) => {
+  fs.writeFileSync(filePath, JSON.stringify(payLoad));
+};
