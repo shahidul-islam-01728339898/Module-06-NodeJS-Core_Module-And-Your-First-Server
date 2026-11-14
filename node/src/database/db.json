@@ -1,42 +1,22 @@
 [
   {
     "id": 1,
-    "name": "John Smith",
-    "email": "john@example.com",
-    "age": 25,
-    "city": "New York",
-    "isActive": true
+    "name": "John Smith"
   },
   {
     "id": 2,
-    "name": "Sarah Johnson",
-    "email": "sarah@example.com",
-    "age": 28,
-    "city": "London",
-    "isActive": true
+    "name": "Sarah Johnson"
   },
   {
     "id": 3,
-    "name": "Michael Brown",
-    "email": "michael@example.com",
-    "age": 32,
-    "city": "Toronto",
-    "isActive": false
+    "name": "Michael Brown"
   },
   {
     "id": 4,
-    "name": "Emily Davis",
-    "email": "emily@example.com",
-    "age": 24,
-    "city": "Sydney",
-    "isActive": true
+    "name": "Emily Davis"
   },
   {
     "id": 5,
-    "name": "David Wilson",
-    "email": "david@example.com",
-    "age": 30,
-    "city": "Dhaka",
-    "isActive": false
+    "name": "David Wilson"
   }
 ]

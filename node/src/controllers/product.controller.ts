@@ -1,8 +1,9 @@
 import { IncomingMessage, METHODS, ServerResponse } from "http";
 import productService from "../service/product.service";
 import { Iproduct } from "../types/product";
+import { bodyParser } from "../utils/parseBody";
 
-const productController = (req: IncomingMessage, res: ServerResponse) => {
+const productController = async (req: IncomingMessage, res: ServerResponse) => {
   //
   const url = req.url;
   const method = req.method;
@@ -77,7 +78,19 @@ const productController = (req: IncomingMessage, res: ServerResponse) => {
         data: product,
       }),
     );
+    //* To Create Product Post Post =201
+  } else if (method === "POST" && url === "/product") {
+    const body = await bodyParser(req);
+    console.log(body);
+    res.writeHead(201, { "content-type": "application/json" });
+    res.end(
+      JSON.stringify({
+        message: "Product Created Successfully",
+        // data: product,
+      }),
+    );
   }
+
   // else {
   //   res.writeHead(404, { "content-type": "application/json" });
   //   res.end(JSON.stringify({ message: "This route is not define" }));
