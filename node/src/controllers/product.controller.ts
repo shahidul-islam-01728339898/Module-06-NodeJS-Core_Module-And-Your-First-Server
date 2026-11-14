@@ -1,11 +1,19 @@
 import { IncomingMessage, METHODS, ServerResponse } from "http";
 import productService from "../service/product.service";
+import { Iproduct } from "../types/product";
 
 const productController = (req: IncomingMessage, res: ServerResponse) => {
   //
   const url = req.url;
   const method = req.method;
+  // console.log(url) -> /products/1
+  const urlParams = url?.split("/");
+  // console.log(urlParams); [ '', 'product', '1' ]
+  const id =
+    urlParams && urlParams[1] === "product" ? Number(urlParams[2]) : null;
+  console.log(id);
 
+  //To Get All Product
   if (url === "/product" && method === "GET") {
     // const products = [
     //   {
@@ -51,7 +59,6 @@ const productController = (req: IncomingMessage, res: ServerResponse) => {
     // ];
 
     const products = productService();
-
     res.writeHead(202, { "Content-type": "application/json" });
     res.end(
       JSON.stringify({
@@ -60,7 +67,21 @@ const productController = (req: IncomingMessage, res: ServerResponse) => {
         // data: productService,
       }),
     );
+  } else if (method === "GET" && id !== null) {
+    const products = productService();
+    const product = products.find((p: Iproduct) => p.id == id);
+    res.writeHead(202, { "content-type": "application/json" });
+    res.end(
+      JSON.stringify({
+        message: "Single Product Are Retriving",
+        data: product,
+      }),
+    );
   }
+  // else {
+  //   res.writeHead(404, { "content-type": "application/json" });
+  //   res.end(JSON.stringify({ message: "This route is not define" }));
+  // }
 };
 
 export default productController;
